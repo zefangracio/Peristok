@@ -77,7 +77,7 @@ class Services {
       } else {
         return List<Stock>.empty();
       }
-    } catch (e) {
+    } catch (e) { 
       print(e.toString());
     }
     return List<Stock>.empty();
