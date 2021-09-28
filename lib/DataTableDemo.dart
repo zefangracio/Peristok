@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peristock/master.dart';
 import './services.dart';
-import './stock.dart';
 
 class DataTableDemo extends StatefulWidget {
   DataTableDemo() : super();
@@ -11,8 +10,8 @@ class DataTableDemo extends StatefulWidget {
 }
 
 class DataTableDemoState extends State<DataTableDemo> {
-  List<Stock> stock = new List<Stock>.empty(growable: true);
-  List<Master> master = new List<Master>.empty(growable: true);
+  // Stock stock = new Stock;
+  // Master master = new Master;
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey();
   TextEditingController isbnController = new TextEditingController();
   //Stock selectedStock = Stock(isbn: '', bookStock: 1, location: '', binloc: '');
@@ -20,28 +19,11 @@ class DataTableDemoState extends State<DataTableDemo> {
   @override
   void initState() {
     super.initState();
-    stock = [];
     titleProgress = widget.title;
     scaffoldKey = GlobalKey();
     isbnController = TextEditingController();
   }
 
-  getMaster(){
-    Services.getMaster().then((master){
-      setState(() {
-        this.master = master;
-      });
-      print("Length ${this.master.length}");
-    });
-  }
-  getStock() {
-    Services.getItem('00084').then((stock){
-      setState(() {
-        this.stock = stock;
-      });
-      print("Length ${this.stock.length}");
-    });
-  }
   //UI
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +34,7 @@ class DataTableDemoState extends State<DataTableDemo> {
           IconButton(
             icon: Icon(Icons.refresh),
             onPressed: () {
-              getMaster();
+              //Services.getMaster();
             },
           )
         ],
@@ -68,6 +50,7 @@ class DataTableDemoState extends State<DataTableDemo> {
                 decoration: InputDecoration.collapsed(hintText: 'ISBN'),
               ),
             )
+            
           ],
         ),
       ),

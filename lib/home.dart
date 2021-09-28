@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './stock.dart';
-import './stocklist.dart';
+
+import 'searchBook.dart';
 class HomePage extends StatelessWidget {
 
   @override
